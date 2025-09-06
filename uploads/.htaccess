@@ -1,0 +1,55 @@
+# PHP fájlok futtatásának tiltása
+php_flag engine off
+
+# Csak .jar fájlok engedélyezése
+<FilesMatch "^.*$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "\.jar$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>
+
+# Könyvtárlistázás tiltása
+Options -Indexes
+
+# MIME típus beállítása .jar fájlokhoz
+AddType application/java-archive .jar
+
+# Letöltés kényszerítése
+<FilesMatch "\.jar$">
+    ForceType application/octet-stream
+    Header set Content-Disposition attachment
+</FilesMatch>
+
+# Rejtett fájlok védelme
+<Files ".*">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Extra védelem mod_rewrite segítségével
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Csak .jar fájlok engedélyezése
+    RewriteCond %{REQUEST_FILENAME} !\.jar$
+    RewriteRule .* - [F,L]
+    
+    # Közvetlen letöltés tiltása, átirányítás a download.php-ra
+    RewriteCond %{REQUEST_FILENAME} \.jar$
+    RewriteRule ^(.*)$ /download.php?file=$1 [L]
+</IfModule>
+
+# Cache beállítások
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType application/java-archive "access plus 1 year"
+</IfModule>
+
+# Tömörítés
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE application/java-archive
+</IfModule> 

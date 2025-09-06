@@ -1,0 +1,267 @@
+:root {
+    --primary-color: #6C63FF;
+    --secondary-color: #4CAF50;
+    --background-dark: #1A1A2E;
+    --background-light: #16213E;
+    --text-primary: #E2E2E2;
+    --text-secondary: #FFFFFF;
+    --accent-color: #FF6B6B;
+    --success-color: #4CAF50;
+    --warning-color: #FFC107;
+    --error-color: #FF5252;
+}
+
+/* Alapvető stílusok */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background-dark);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s ease;
+    overflow-x: hidden; /* Csak a vízszintes görgetést tiltjuk, ha nincs rá szükség */
+}
+
+/* Fő tartalom konténer */
+main.flex-grow-1 {
+    overflow-y: auto; /* Függőleges görgetés engedélyezése, ha a tartalom túlnyúlik */
+    -webkit-overflow-scrolling: touch; /* Sima görgetés iOS-en */
+}
+
+/* Navigáció */
+.navbar {
+    background: rgba(26, 26, 46, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--primary-color) !important;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 15px var(--primary-color);
+}
+
+/* Kártyák */
+.card {
+    background: var(--background-light);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+    background: rgba(108, 99, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gombok */
+.btn {
+    border-radius: 8px;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #5650e7;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+}
+
+/* Animációk */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.slide-in {
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+/* Plugin kártyák */
+.plugin-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.plugin-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(108, 99, 255, 0.1));
+    transition: all 0.3s ease;
+}
+
+.plugin-card:hover::before {
+    transform: scale(1.1);
+}
+
+/* Űrlapok */
+.form-control {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+}
+
+/* Űrlap elemek szövege és ikonjai */
+.form-label, .form-check-label, .form-text, .form-control + .fas, .input-group-text, .form-control::placeholder {
+    color: var(--text-secondary) !important; /* Fehér szín */
+}
+
+/* Táblázatok */
+.table {
+    color: var(--text-primary);
+}
+
+.table thead th {
+    background: rgba(108, 99, 255, 0.1);
+    border-bottom: none;
+}
+
+.table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.table tbody tr:hover {
+    background: rgba(108, 99, 255, 0.05);
+}
+
+/* Badges */
+.badge {
+    padding: 0.5em 1em;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+/* Toast üzenetek */
+.toast {
+    background: var(--background-light);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1050;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(108, 99, 255, 0.1);
+    border-left-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Reszponzív dizájn */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 20px;
+    }
+    
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+}
+
+/* Egyedi scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #5650e7;
+}
+
+/* Kijelölés stílus */
+::selection {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Hero szekció hullámának javítása */
+.hero-waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0; /* Eltávolítja az extra helyet az SVG alatt */
+}
+
+.hero-waves svg {
+    display: block; /* Eltávolítja az extra helyet az SVG alatt */
+}
+
+/* A hero szekció padding-top-jának növelése, hogy ne lógjon bele a navbar */
+.hero {
+    padding-top: 100px; /* Növeljük a felső paddingot */
+}
+
+/* Navbar brand és hero szekció közötti távolság növelése */
+.navbar {
+    margin-bottom: 0; /* Alapértelmezett margin visszaállítása */
+}
+
+body > .navbar {
+    margin-bottom: 20px; /* Csak a közvetlen body alatti navbarra */
+}

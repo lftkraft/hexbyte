@@ -1,0 +1,255 @@
+/* Lebegő animáció */
+.floating-animation {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Gradiens szöveg animáció */
+.text-gradient {
+    background: linear-gradient(45deg, var(--primary-color), #FF6B6B);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient 8s ease infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Hero alakzatok animáció */
+.hero-shapes .shape {
+    position: absolute;
+    border-radius: 50%;
+    animation: shapeFloat 10s ease-in-out infinite;
+}
+
+.shape-1 {
+    width: 100px;
+    height: 100px;
+    background: rgba(108, 99, 255, 0.1);
+    top: -20px;
+    right: 10%;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 107, 107, 0.1);
+    bottom: 20%;
+    right: 30%;
+    animation-delay: -3s;
+}
+
+.shape-3 {
+    width: 70px;
+    height: 70px;
+    background: rgba(76, 175, 80, 0.1);
+    top: 30%;
+    right: 20%;
+    animation-delay: -6s;
+}
+
+@keyframes shapeFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+}
+
+/* Kártya hover effekt */
+.plugin-card {
+    transition: all 0.3s ease;
+}
+
+.plugin-card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+/* Statisztika számláló animáció */
+.counter {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: countUp 1s ease forwards;
+}
+
+@keyframes countUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Gomb hover effekt */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::after {
+    width: 300%;
+    height: 300%;
+}
+
+/* Oldal betöltési animáció */
+.page-transition {
+    animation: pageLoad 0.6s ease-out;
+}
+
+@keyframes pageLoad {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Kategória kártya hover effekt */
+.category-card {
+    transition: all 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+}
+
+.category-card:hover i {
+    animation: bounce 0.6s ease infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Hullám animáció */
+.hero-waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    animation: waveFloat 3s ease-in-out infinite;
+}
+
+@keyframes waveFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* Loading spinner animáció */
+.loading-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Toast megjelenési animáció */
+.toast.show {
+    animation: slideInRight 0.3s ease forwards;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Dropdown menü animáció */
+.dropdown-menu {
+    animation: dropdownFade 0.2s ease;
+}
+
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Aktív menüpont animáció */
+.nav-link.active {
+    position: relative;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+    animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+} 

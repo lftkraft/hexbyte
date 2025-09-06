@@ -1,0 +1,47 @@
+User-agent: *
+Allow: /
+Allow: /plugins/
+Allow: /index.php
+Allow: /plugin.php
+Allow: /plugins.php
+Allow: /docs.php
+
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /data/
+Disallow: /uploads/
+Disallow: /assets/
+Disallow: /login.php
+Disallow: /register.php
+Disallow: /profile.php
+Disallow: /edit_*
+Disallow: /delete_*
+Disallow: /create_*
+Disallow: /add_*
+Disallow: /*.json$
+Disallow: /*.php$
+Disallow: /*?*
+
+Sitemap: https://hexbyte.local/sitemap.xml
+
+# Crawl-delay: 10
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /admin/
+
+# Block bad bots
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: YandexBot
+Disallow: / 

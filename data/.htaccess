@@ -1,0 +1,36 @@
+# Minden fájl közvetlen elérésének tiltása
+Order deny,allow
+Deny from all
+
+# JSON fájlok speciális védelme
+<Files ~ "\.json$">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Könyvtárlistázás tiltása
+Options -Indexes
+
+# PHP fájlok futtatásának tiltása
+<Files ~ "\.php$">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Cache fájlok védelme
+<Files ~ "\.cache$">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Rejtett fájlok védelme
+<Files ".*">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Extra védelem mod_rewrite segítségével
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule .* - [F,L]
+</IfModule> 

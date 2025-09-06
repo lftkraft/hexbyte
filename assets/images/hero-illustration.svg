@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Háttér elemek -->
+    <circle cx="400" cy="300" r="250" fill="url(#gradient1)" opacity="0.1"/>
+    <circle cx="400" cy="300" r="200" fill="url(#gradient2)" opacity="0.15"/>
+    
+    <!-- Minecraft kocka -->
+    <g transform="translate(300,200) rotate(-15)">
+        <path d="M100,100 L200,50 L300,100 L200,150 Z" fill="#6C63FF" opacity="0.9"/>
+        <path d="M100,100 L100,200 L200,250 L200,150 Z" fill="#5650E7" opacity="0.9"/>
+        <path d="M200,150 L200,250 L300,200 L300,100 Z" fill="#4A45C6" opacity="0.9"/>
+        
+        <!-- Plugin szimbólum -->
+        <g transform="translate(180,120) scale(0.5)">
+            <path d="M40,0 L80,20 L80,60 L40,80 L0,60 L0,20 Z" fill="#FF6B6B"/>
+            <path d="M30,20 L50,30 L50,50 L30,60 L10,50 L10,30 Z" fill="white"/>
+        </g>
+    </g>
+    
+    <!-- Lebegő elemek -->
+    <g class="floating-elements">
+        <circle cx="150" cy="150" r="10" fill="#4CAF50" opacity="0.6">
+            <animate attributeName="cy" values="150;130;150" dur="4s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="650" cy="450" r="15" fill="#FF6B6B" opacity="0.6">
+            <animate attributeName="cy" values="450;470;450" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="250" cy="500" r="8" fill="#FFC107" opacity="0.6">
+            <animate attributeName="cy" values="500;520;500" dur="5s" repeatCount="indefinite"/>
+        </circle>
+    </g>
+    
+    <!-- Kód szimbólumok -->
+    <g transform="translate(100,400)" fill="#6C63FF" opacity="0.2">
+        <text x="0" y="0" font-family="monospace" font-size="20">&lt;/&gt;</text>
+    </g>
+    <g transform="translate(600,200)" fill="#6C63FF" opacity="0.2">
+        <text x="0" y="0" font-family="monospace" font-size="20">{}</text>
+    </g>
+    
+    <!-- Gradiensek -->
+    <defs>
+        <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#6C63FF;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#FF6B6B;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient id="gradient2" x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#6C63FF;stop-opacity:1"/>
+        </linearGradient>
+        
+        <!-- Animációk -->
+        <animate xlink:href="#gradient1" attributeName="x1" from="0%" to="100%" dur="10s" repeatCount="indefinite"/>
+        <animate xlink:href="#gradient2" attributeName="y1" from="0%" to="100%" dur="8s" repeatCount="indefinite"/>
+    </defs>
+</svg> 
